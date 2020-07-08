@@ -1,0 +1,21 @@
+<div class="cart">
+	<a class="btn btn-success btn-sm" routerLink="/cart" title="go to cart shopping"  [ngClass]="{'enfasis':isCart}" >
+        <i class="glyphicon glyphicon-shopping-cart"></i> &nbsp; <span class="badge badge-light"> {{ cart }}</span>
+    </a>
+</div>
+			
+<h1>List Product</h1>
+<p class="lead"> e-commerce cart </p>
+<hr />
+		
+<div class="row">
+	<div class="col-lg-4" *ngFor="let product of products">
+		<div class="ref-product">
+			<img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="100" height="100">
+			<h2>{{product.name}}</h2>
+			<b>{{product.sku}} ({{product.price}} $) </b>
+			<p>{{product.description}}</p>
+			<p><button class="btn btn-default" (click)="addCart(product)" [ngClass]="{'disabled':product.disabled}" >Add to Cart</button></p>
+		</div>
+	</div>
+</div>
